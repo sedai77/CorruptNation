@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+    background: #004d40;
+    color: white;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem 0;
+}
+
+/* center line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: #ddd;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+/* timeline item */
+.timeline-item {
+    padding: 1rem;
+    position: relative;
+    width: 50%;
+}
+
+/* left side */
+.timeline-item.left {
+    left: 0;
+}
+
+/* right side */
+.timeline-item.right {
+    left: 50%;
+}
+
+/* container content box */
+.timeline-item .content {
+    padding: 1rem;
+    background: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+/* arrow indicators */
+.timeline-item.left::before {
+    content: " ";
+    position: absolute;
+    top: 1rem;
+    right: -15px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent white;
+}
+
+.timeline-item.right::before {
+    content: " ";
+    position: absolute;
+    top: 1rem;
+    left: -15px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    background: #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 10px;
+    margin-top: 0.5rem;
+}
+.progress-bar span {
+    display: block;
+    height: 100%;
+}
+.progress-bar.clean span {
+    background: #4caf50;
+}
+.progress-bar.corrupt span {
+    background: #f44336;
+}
+
+@media screen and (max-width: 600px) {
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        margin-bottom: 2rem;
+    }
+    .timeline-item.right::before,
+    .timeline-item.left::before {
+        left: 50%;
+        margin-left: -10px;
+        border-color: transparent transparent white transparent;
+    }
+}
